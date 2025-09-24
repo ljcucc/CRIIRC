@@ -92,7 +92,7 @@ class MyApp extends StatelessWidget {
       ),
       colorScheme: ColorScheme.fromSwatch(
         brightness: Brightness.light,
-        primaryColorDark: color,
+        // primaryColorDark: color,
         backgroundColor: bgColor,
         accentColor: Colors.black,
         primarySwatch: getMaterialColor(color),
