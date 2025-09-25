@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:normal_irc/app_style.dart';
 import 'package:normal_irc/data/irc_client.dart';
 import 'package:normal_irc/pages/chat_logs.dart';
@@ -37,9 +38,7 @@ class IRCChannelListWidget extends StatelessWidget {
       child: Column(
         children: [
           ChannelListWidget(),
-          SizedBox(
-            height: 16,
-          ),
+          Gap(16),
           JoinButtonWidget(),
         ],
       ),
@@ -73,9 +72,7 @@ class URAlone extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 32,
-              ),
+              Gap(32),
               Flexible(
                 flex: 1,
                 child: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:normal_irc/app_style.dart';
 import 'package:provider/provider.dart';
 import 'package:normal_irc/criirc/criirc_textfield.dart';
@@ -44,9 +45,7 @@ class ChatLogPageWidget extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 16,
-          ),
+          Gap(16),
           const CriircTextField(hintText: 'Enter after you double check'),
         ],
       ),

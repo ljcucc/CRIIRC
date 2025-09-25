@@ -43,6 +43,7 @@ dependencies:
       ref: 4802034c98dd0cbfe3341af5d4f413ba11827dce
   marquee: ^2.2.3
   shared_preferences: ^2.2.0
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
