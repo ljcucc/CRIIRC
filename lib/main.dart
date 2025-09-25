@@ -10,6 +10,7 @@ import 'package:normal_irc/pages/welcome_screen.dart';
 import 'package:normal_irc/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:normal_irc/home_layout.dart';
 
 void main() {
   // runApp(const MyApp());
@@ -179,51 +180,5 @@ class _MyHomePageState extends State<MyHomePage> {
         decoration: BoxDecoration(color: Colors.white),
       ),
     );
-  }
-}
-
-class HomeLayout extends StatelessWidget {
-  const HomeLayout({super.key});
-
-  List<Widget> get layouts => [
-        Flexible(
-          flex: 20,
-          child: Container(
-            child: ChatNavigationPage(),
-          ),
-        ),
-        Flexible(
-          flex: 40,
-          child: Container(
-            child: ChatLogPageWidget(),
-          ),
-        ),
-        Flexible(
-          flex: 20,
-          child: Container(
-            constraints: BoxConstraints(maxWidth: 400, minWidth: 333),
-            child: MemberListPage(),
-          ),
-        ),
-      ];
-
-  Widget UI(int layoutInt) {
-    return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(bottom: 8),
-        child: Row(
-          // children: layouts,
-          children: layouts.sublist(0, layoutInt),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      int layoutInt = getLayoutInt(context);
-      return UI(layoutInt);
-    });
   }
 }
