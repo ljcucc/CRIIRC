@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:normal_irc/app_style.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomeScreenWidget extends StatelessWidget {
   const WelcomeScreenWidget({super.key});

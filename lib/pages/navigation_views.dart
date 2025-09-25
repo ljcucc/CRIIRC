@@ -7,8 +7,6 @@ import 'package:normal_irc/utils.dart';
 import 'package:normal_irc/widgets/clickable_text_link.dart';
 import 'package:provider/provider.dart';
 
-import 'package:normal_irc/main.dart';
-
 class ChatNavigationPage extends StatelessWidget {
   get IRCView => const [
         ChatServerTitleWidget(title: "CRIIRC"),

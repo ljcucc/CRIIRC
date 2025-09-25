@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:normal_irc/app_style.dart';
-import 'package:normal_irc/utils.dart';
 import 'package:normal_irc/widgets/custom_context_toolbar.dart';
 import 'package:provider/provider.dart';
 

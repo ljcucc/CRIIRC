@@ -1,12 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_native_text_input/flutter_native_text_input.dart';
 import 'package:normal_irc/app_style.dart';
-import 'package:normal_irc/main.dart';
-import 'package:normal_irc/utils.dart';
 import 'package:normal_irc/widgets/custom_context_toolbar.dart';
 import 'package:provider/provider.dart';
 
