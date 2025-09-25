@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:normal_irc/app_style.dart';
-import 'package:provider/provider.dart';
+import 'package:normal_irc/criirc/criirc_container.dart';
 import 'package:normal_irc/criirc/criirc_textfield.dart';
+import 'package:provider/provider.dart';
 
 const exmpaleTopic = '''
 floof not required but prefurred | keep it sfw - anything else → ##furrysmut (18+) | not a place for politics || <octav1a> but...nothing is better than "h" | Flits is still feesh and cute | everyone's nice and cute! | bnchs is an amazing cat | Happy Pride! | Flits is *still* feesh
@@ -13,9 +14,6 @@ class ChatLogPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appStyle = Provider.of<AppStyle>(context);
-    final color = appStyle.color;
-
     return Container(
       // width: double.infinity,
       // height: double.infinity,
@@ -26,22 +24,17 @@ class ChatLogPageWidget extends StatelessWidget {
         children: [
           const ChatHeaderWidget(),
           Expanded(
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 2.5,
-                  color: color,
+            child: CriircContainer(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: ListView(
+                  children: [
+                    for (var i = 0; i < 100; i++)
+                      const ChatRecord(
+                        nickname: "FluffyChan",
+                      )
+                  ],
                 ),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: ListView(
-                children: [
-                  for (var i = 0; i < 100; i++)
-                    const ChatRecord(
-                      nickname: "FluffyChan",
-                    )
-                ],
               ),
             ),
           ),
