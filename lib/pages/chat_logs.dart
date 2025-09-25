@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:normal_irc/app_style.dart';
-import 'package:normal_irc/widgets/custom_context_toolbar.dart';
 import 'package:provider/provider.dart';
+import 'package:normal_irc/criirc/criirc_textfield.dart';
 
 const exmpaleTopic = '''
 floof not required but prefurred | keep it sfw - anything else → ##furrysmut (18+) | not a place for politics || <octav1a> but...nothing is better than "h" | Flits is still feesh and cute | everyone's nice and cute! | bnchs is an amazing cat | Happy Pride! | Flits is *still* feesh
@@ -47,7 +47,7 @@ class ChatLogPageWidget extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const ChatInput(),
+          const CriircTextField(hintText: 'Enter after you double check'),
         ],
       ),
     );
@@ -191,25 +191,5 @@ class ChatLogPageScreen extends StatelessWidget {
       //   ],
       // ),
     );
-  }
-}
-
-class ChatInput extends StatelessWidget {
-  const ChatInput({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final color = Provider.of<AppStyle>(context).color;
-
-    return Container(
-        padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: color,
-            width: 2.5,
-          ),
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: const CustomInput(hint: 'Enter after you double check'));
   }
 }
