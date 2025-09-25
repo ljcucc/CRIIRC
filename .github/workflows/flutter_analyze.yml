@@ -18,8 +18,10 @@ jobs:
           cache: true
       - name: Dependencies
         run: flutter pub get
+        working-directory: app
       - name: Check format
         run: dart format --line-length 150 --set-exit-if-changed lib test
+        working-directory: app
   analyze:
     runs-on: ubuntu-latest
     steps:
@@ -31,5 +33,7 @@ jobs:
           cache: true
       - name: Dependencies
         run: flutter pub get
+        working-directory: app
       - name: Analyze
         run: flutter analyze
+        working-directory: app

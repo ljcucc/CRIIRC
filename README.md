@@ -1,44 +1,37 @@
-# CRIIRC - A Cross-Platform IRC Client
+# CRIIRC
 
-CRIIRC is a modern, cross-platform IRC (Internet Relay Chat) client built with Flutter. It aims to provide a seamless and intuitive experience for connecting to IRC networks, joining channels, and communicating with other users.
+A modern IRC client built with Flutter, designed for a seamless cross-platform chat experience.
 
 ## Features
 
-*   **Cross-Platform:** Enjoy CRIIRC on Android, iOS, Web, macOS, Linux, and Windows from a single codebase.
-*   **Intuitive UI:** A clean and user-friendly interface designed for efficient IRC communication.
-*   **Channel Management:** Easily join, leave, and manage multiple IRC channels.
-*   **Server Connections:** Connect to various IRC networks with configurable server settings.
-*   **Private Messaging:** Engage in one-on-one conversations with other IRC users.
-*   **Adaptive Layouts:** Responsive design for optimal viewing across different screen sizes and devices.
+*   **Cross-Platform:** Enjoy a consistent experience across mobile, desktop, and web.
+*   **Intuitive UI:** A clean and user-friendly interface for easy navigation.
+*   **Channel Management:** Join, leave, and manage IRC channels effortlessly.
+*   **Server Connections:** Connect to multiple IRC servers.
+*   **Adaptive Layout:** Optimized layouts for various screen sizes.
 
 ## Getting Started
 
-To get a local copy up and running, follow these simple steps.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-Ensure you have the following installed:
-
-*   **Flutter SDK:** [Install Flutter](https://flutter.dev/docs/get-started/install)
-*   **FVM (Flutter Version Management):** This project uses FVM to manage its Flutter SDK version. If you don't have FVM, install it globally:
-    ```bash
-    dart pub global activate fvm
-    ```
-    Then, ensure you use the project's Flutter version:
-    ```bash
-    fvm use
-    fvm install
-    ```
+*   [Flutter SDK](https://flutter.dev/docs/get-started/install)
+*   [FVM (Flutter Version Management)](https://fvm.app/)
 
 ### Installation
 
-1.  Clone the repository:
+1.  **Clone the repository:**
+
     ```bash
-    git clone https://github.com/your-username/criirc.git
-    cd criirc
+    git clone https://github.com/your-username/CRIIRC.git
+    cd CRIIRC/app
     ```
-2.  Get Flutter dependencies:
+
+2.  **Install Flutter dependencies:**
+
     ```bash
+    fvm use
     fvm flutter pub get
     ```
 
@@ -50,28 +43,33 @@ To run the application on a connected device or emulator:
 fvm flutter run
 ```
 
-To run on a specific platform (e.g., web, macOS):
+To build for a specific platform (e.g., web):
 
 ```bash
-fvm flutter run -d chrome
-fvm flutter run -d macos
+fvm flutter build web
 ```
 
 ## Project Structure
 
-*   `lib/`: Contains the main application source code.
-    *   `lib/criirc/`: Core IRC client widgets and components.
-    *   `lib/data/`: Data models and IRC client logic (e.g., `irc_client.dart`).
-    *   `lib/pages/`: Different screens/pages of the application.
-    *   `lib/widgets/`: Reusable UI widgets.
-*   `android/`, `ios/`, `linux/`, `macos/`, `web/`, `windows/`: Platform-specific project files.
-*   `images/`: Application assets like `ur_alone.webp`.
-*   `test/`: Unit and widget tests.
+```
+app/
+├── lib/              # Dart source code
+│   ├── criirc/       # Core IRC client components
+│   ├── data/         # Data models and IRC client logic
+│   ├── pages/        # UI pages/screens
+│   └── widgets/      # Reusable UI widgets
+├── android/          # Android specific files
+├── ios/              # iOS specific files
+├── linux/            # Linux specific files
+├── macos/            # macOS specific files
+├── web/              # Web specific files
+└── windows/          # Windows specific files
+```
 
 ## Contributing
 
-Contributions are welcome! Please feel free to open an issue or submit a pull request.
+Contributions are welcome! Please see `CONTRIBUTING.md` (to be added) for details on how to contribute.
 
 ## License
 
-This project is licensed under the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License - see the `LICENSE` file for details.
