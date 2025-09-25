@@ -21,26 +21,3 @@ MaterialColor getMaterialColor(Color color) {
 
   return MaterialColor(color.toARGB32(), shades);
 }
-
-int getLayoutInt(BuildContext context) {
-  var layoutInt = 1;
-
-  final width = MediaQuery.of(context).size.width;
-  final orientation = MediaQuery.of(context).orientation;
-
-  // layout based on screen size ( if landscape )
-  if (width < 750) {
-    layoutInt = 1;
-  } else if (width < 1200) {
-    layoutInt = 2;
-  } else {
-    layoutInt = 3;
-  }
-
-  // overwrite layout based on orientation
-  if (orientation == Orientation.portrait) {
-    layoutInt = 1;
-  }
-
-  return layoutInt;
-}

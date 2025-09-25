@@ -4,7 +4,7 @@ import 'package:normal_irc/app_style.dart';
 import 'package:normal_irc/data/irc_client.dart';
 import 'package:normal_irc/pages/chat_logs.dart';
 import 'package:normal_irc/pages/new_server.dart';
-import 'package:normal_irc/utils.dart';
+import '../criirc/criirc_adoptive_layout.dart';
 import 'package:normal_irc/widgets/clickable_text_link.dart';
 import 'package:provider/provider.dart';
 
@@ -19,11 +19,8 @@ class ChatNavigationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(32, 32, 32, 16),
-        child: Column(
-          children: ircView,
-        ),
+      child: Column(
+        children: ircView,
       ),
     );
   }
@@ -100,7 +97,13 @@ class ChannelListWidget extends StatelessWidget {
       for (var item in Provider.of<IRCClient>(context).channelList)
         InkWell(
           onTap: () {
-            if (getLayoutInt(context) == 1) ChatLogPageScreen.open(context);
+            if (getLayoutType(context) != LayoutType.compact) return;
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Scaffold(body: ChatLogPage(isSinglePage: true)),
+              ),
+            );
           }, // Handle your callback
           child: Container(
             // height: 80,
@@ -126,7 +129,7 @@ class ChannelListWidget extends StatelessWidget {
     // }
 
     return Expanded(
-      child: getLayoutInt(context) == 1
+      child: getLayoutType(context) == LayoutType.compact
           ? ListWheelScrollView(
               itemExtent: 40,
               diameterRatio: 0.8,

@@ -13,9 +13,6 @@ class _MemberListPageState extends State<MemberListPage> {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
-      width: double.infinity,
-      height: double.infinity,
-      padding: const EdgeInsets.fromLTRB(32, 32, 32, 16),
       alignment: Alignment.topLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

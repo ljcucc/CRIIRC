@@ -9,43 +9,6 @@ const exmpaleTopic = '''
 floof not required but prefurred | keep it sfw - anything else → ##furrysmut (18+) | not a place for politics || <octav1a> but...nothing is better than "h" | Flits is still feesh and cute | everyone's nice and cute! | bnchs is an amazing cat | Happy Pride! | Flits is *still* feesh
 ''';
 
-class ChatLogPageWidget extends StatelessWidget {
-  const ChatLogPageWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // width: double.infinity,
-      // height: double.infinity,
-      padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
-      alignment: Alignment.topLeft,
-      child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ChatHeaderWidget(),
-          Expanded(
-            child: CriircContainer(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: ListView(
-                  children: [
-                    for (var i = 0; i < 100; i++)
-                      const ChatRecord(
-                        nickname: "FluffyChan",
-                      )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Gap(16),
-          const CriircTextField(hintText: 'Enter after you double check'),
-        ],
-      ),
-    );
-  }
-}
-
 class ChatHeaderWidget extends StatelessWidget {
   const ChatHeaderWidget({super.key});
 
@@ -141,47 +104,44 @@ class ChatRecord extends StatelessWidget {
   }
 }
 
-class ChatLogPageScreen extends StatelessWidget {
-  const ChatLogPageScreen({super.key});
+class ChatLogPage extends StatefulWidget {
+  final bool isSinglePage;
 
-  static void open(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ChatLogPageScreen()),
-    );
-  }
+  const ChatLogPage({super.key, this.isSinglePage = false});
 
   @override
+  State<ChatLogPage> createState() => _ChatLogPageState();
+}
+
+class _ChatLogPageState extends State<ChatLogPage> {
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: ChatLogPageWidget(),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   unselectedItemColor: color,
-      //   selectedItemColor: color,
-      //   currentIndex: 1,
-      //   elevation: 0,
-      //   onTap: (value) {
-      //     switch (value) {
-      //       case 0:
-      //         Navigator.pop(context);
-      //         break;
-      //     }
-      //   },
-      //   items: [
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.arrow_back),
-      //       label: "Back",
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.home_outlined),
-      //       label: "Channels",
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.person_outline),
-      //       label: "Members",
-      //     )
-      //   ],
-      // ),
+    return Container(
+      padding: widget.isSinglePage ? EdgeInsets.symmetric(vertical: 32, horizontal: 16) : EdgeInsets.zero,
+      alignment: Alignment.topLeft,
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const ChatHeaderWidget(),
+          Expanded(
+            child: CriircContainer(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: ListView(
+                  children: [
+                    for (var i = 0; i < 100; i++)
+                      const ChatRecord(
+                        nickname: "FluffyChan",
+                      )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Gap(16),
+          const CriircTextField(hintText: 'Enter after you double check'),
+        ],
+      ),
     );
   }
 }
