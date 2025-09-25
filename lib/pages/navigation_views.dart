@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:normal_irc/app_style.dart';
-import 'package:normal_irc/data/IRCClient.dart';
-import 'package:normal_irc/main.dart';
+import 'package:normal_irc/data/irc_client.dart';
 import 'package:normal_irc/pages/chat_logs.dart';
 import 'package:normal_irc/pages/new_server.dart';
 import 'package:normal_irc/utils.dart';

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:normal_irc/app_style.dart';
-import 'package:normal_irc/data/IRCClient.dart';
+import 'package:normal_irc/data/irc_client.dart';
 import 'package:normal_irc/pages/chat_logs.dart';
 import 'package:normal_irc/pages/navigation_views.dart';
 import 'package:normal_irc/pages/member_list.dart';
