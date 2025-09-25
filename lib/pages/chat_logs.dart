@@ -152,7 +152,7 @@ class ChatRecord extends StatelessWidget {
 class ChatLogPageScreen extends StatelessWidget {
   const ChatLogPageScreen({super.key});
 
-  static void open(context) {
+  static void open(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const ChatLogPageScreen()),

@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class ChatNavigationPage extends StatelessWidget {
   const ChatNavigationPage({super.key});
 
-  get ircView => const [
+  List<Widget> get ircView => const [
         ChatServerTitleWidget(title: "CRIIRC"),
         IRCChannelListWidget(),
       ];

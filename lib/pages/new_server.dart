@@ -31,7 +31,7 @@ class AddServerWidget extends StatelessWidget {
 class NewServerForm extends StatelessWidget {
   const NewServerForm({super.key});
 
-  inputField(String label, BuildContext context, {bool obscureText = false}) {
+  Widget inputField(String label, BuildContext context, {bool obscureText = false}) {
     final color = Provider.of<AppStyle>(context).color;
 
     return Container(
@@ -90,7 +90,7 @@ class NewServerPageWidget extends StatelessWidget {
     );
   }
 
-  static open(context) {
+  static void open(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(

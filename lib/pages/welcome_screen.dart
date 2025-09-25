@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class WelcomeScreenWidget extends StatelessWidget {
   const WelcomeScreenWidget({super.key});
 
-  pageOne(BuildContext context) {
+  Widget pageOne(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return SafeArea(
@@ -39,7 +39,7 @@ class WelcomeScreenWidget extends StatelessWidget {
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
-  static open(context) {
+  static void open(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
