@@ -36,7 +36,7 @@ class NewServerForm extends StatelessWidget {
 
     return Container(
         padding: const EdgeInsets.only(left: 16, right: 16),
-        decoration: BoxDecoration(color: color.withOpacity(0.07)),
+        decoration: BoxDecoration(color: color.withAlpha((255 * 0.07).round())),
         child: CustomInput(
           hint: label,
           obscureText: obscureText,

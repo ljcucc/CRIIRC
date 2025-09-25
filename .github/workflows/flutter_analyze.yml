@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main]
 env:
-  FLUTTER_VERSION: "3.13.0"
+  FLUTTER_VERSION: "3.35.4"
 jobs:
   format:
     runs-on: ubuntu-latest

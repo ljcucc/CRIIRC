@@ -82,7 +82,7 @@ class ServerListWidget extends StatelessWidget {
                         width: 300,
                         height: 300,
                         decoration: BoxDecoration(
-                          color: color.withOpacity(0.1),
+                          color: color.withAlpha((255 * 0.1).round()),
                           borderRadius: BorderRadius.circular(30),
                           border: Border.all(
                             color: color,
@@ -131,7 +131,7 @@ class _ServerListItemState extends State<ServerListItem> {
       child: Container(
         padding: const EdgeInsets.only(top: 32, bottom: 32),
         decoration: BoxDecoration(
-          color: isHover ? color.withOpacity(0.1) : null,
+          color: isHover ? color.withAlpha((255 * 0.1).round()) : null,
           border: Border.all(width: 3, color: color),
           borderRadius: BorderRadius.circular(100),
         ),
