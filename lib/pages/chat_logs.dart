@@ -1,8 +1,4 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_native_text_input/flutter_native_text_input.dart';
 import 'package:normal_irc/app_style.dart';
 import 'package:normal_irc/widgets/custom_context_toolbar.dart';
 import 'package:provider/provider.dart';
@@ -12,24 +8,25 @@ floof not required but prefurred | keep it sfw - anything else → ##furrysmut (
 ''';
 
 class ChatLogPageWidget extends StatelessWidget {
+  const ChatLogPageWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     final appStyle = Provider.of<AppStyle>(context);
-    final color = appStyle.color!;
+    final color = appStyle.color;
 
     return Container(
       // width: double.infinity,
       // height: double.infinity,
-      padding: EdgeInsets.fromLTRB(16, 32, 16, 16),
+      padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
       alignment: Alignment.topLeft,
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ChatHeaderWidget(),
+          const ChatHeaderWidget(),
           Expanded(
             child: Container(
-              padding: EdgeInsets.fromLTRB(24, 0, 24, 0),
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 2.5,
@@ -40,17 +37,17 @@ class ChatLogPageWidget extends StatelessWidget {
               child: ListView(
                 children: [
                   for (var i = 0; i < 100; i++)
-                    ChatRecord(
+                    const ChatRecord(
                       nickname: "FluffyChan",
                     )
                 ],
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          ChatInput(),
+          const ChatInput(),
         ],
       ),
     );
@@ -67,7 +64,7 @@ class ChatHeaderWidget extends StatelessWidget {
     var color = appStyle.color;
 
     return Container(
-      padding: EdgeInsets.only(left: 24, bottom: 16, right: 24),
+      padding: const EdgeInsets.only(left: 24, bottom: 16, right: 24),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -77,8 +74,7 @@ class ChatHeaderWidget extends StatelessWidget {
             children: [
               Text(
                 "## CHAT",
-                style: textTheme.bodyLarge!
-                    .copyWith(backgroundColor: color, color: appStyle.bgColor),
+                style: textTheme.bodyLarge!.copyWith(backgroundColor: color, color: appStyle.bgColor),
                 textAlign: TextAlign.left,
               ),
               Text(
@@ -91,10 +87,10 @@ class ChatHeaderWidget extends StatelessWidget {
           Flexible(
             flex: 1,
             child: Container(
-              padding: EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.only(left: 16),
               alignment: Alignment.centerRight,
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 200, minWidth: 50),
+                constraints: const BoxConstraints(maxWidth: 200, minWidth: 50),
                 // padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
                 child: Text(
                   exmpaleTopic,
@@ -137,15 +133,13 @@ class ChatRecord extends StatelessWidget {
               child: Text(
                 nickname,
                 overflow: TextOverflow.visible,
-                style: textTheme.bodyMedium
-                    ?.copyWith(height: 1, fontWeight: FontWeight.w700),
+                style: textTheme.bodyMedium?.copyWith(height: 1, fontWeight: FontWeight.w700),
               ),
             ),
             // SizedBox(height: 16),
             Text(
               "Hello\nUwU This is a test message...",
-              style: textTheme.bodySmall
-                  ?.copyWith(height: 1, fontWeight: FontWeight.w300),
+              style: textTheme.bodySmall?.copyWith(height: 1, fontWeight: FontWeight.w300),
               maxLines: 3,
             ),
           ],
@@ -167,18 +161,8 @@ class ChatLogPageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final appStyle = Provider.of<AppStyle>(context);
-    final color = appStyle.color;
-
-    return Scaffold(
-      body: Container(
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //       image: NetworkImage("https://s.ljcu.cc/D4Xi"), fit: BoxFit.cover),
-        // ),
-        child: ChatLogPageWidget(),
-      ),
+    return const Scaffold(
+      body: ChatLogPageWidget(),
       // bottomNavigationBar: BottomNavigationBar(
       //   unselectedItemColor: color,
       //   selectedItemColor: color,
@@ -216,7 +200,6 @@ class ChatInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Provider.of<AppStyle>(context).color;
-    final textTheme = Theme.of(context).textTheme;
 
     return Container(
         padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
@@ -227,6 +210,6 @@ class ChatInput extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(100),
         ),
-        child: CustomInput(hint: 'Enter after you double check'));
+        child: const CustomInput(hint: 'Enter after you double check'));
   }
 }

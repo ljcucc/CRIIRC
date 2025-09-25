@@ -1,6 +1,5 @@
 import 'dart:collection';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Channel {
   String id = "";

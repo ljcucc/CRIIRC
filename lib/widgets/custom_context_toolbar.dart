@@ -9,8 +9,7 @@ class CustomContextMenuButton extends StatefulWidget {
   const CustomContextMenuButton({super.key, required this.button});
 
   @override
-  State<CustomContextMenuButton> createState() =>
-      _CustomContextMenuButtonState();
+  State<CustomContextMenuButton> createState() => _CustomContextMenuButtonState();
 }
 
 class _CustomContextMenuButtonState extends State<CustomContextMenuButton> {
@@ -38,15 +37,12 @@ class _CustomContextMenuButtonState extends State<CustomContextMenuButton> {
         child: SizedBox(
           width: 300,
           child: Container(
-            padding: EdgeInsets.fromLTRB(16, 4, 16, 4),
-            decoration:
-                BoxDecoration(color: onSelect ? color : Colors.transparent),
+            padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+            decoration: BoxDecoration(color: onSelect ? color : Colors.transparent),
             child: Text(
-              CupertinoTextSelectionToolbarButton.getButtonLabel(
-                  context, widget.button),
+              CupertinoTextSelectionToolbarButton.getButtonLabel(context, widget.button),
               textAlign: TextAlign.start,
-              style: textTheme.bodyMedium!
-                  .copyWith(color: onSelect ? appStyle.bgColor : color),
+              style: textTheme.bodyMedium!.copyWith(color: onSelect ? appStyle.bgColor : color),
             ),
           ),
         ),
@@ -54,8 +50,7 @@ class _CustomContextMenuButtonState extends State<CustomContextMenuButton> {
     );
   }
 
-  static Widget contextMenuBuilder(
-      BuildContext context, EditableTextState editableTextState) {
+  static Widget contextMenuBuilder(BuildContext context, EditableTextState editableTextState) {
     return CupertinoAdaptiveTextSelectionToolbar(
       anchors: editableTextState.contextMenuAnchors,
       children: editableTextState.contextMenuButtonItems.map((e) {
@@ -101,8 +96,7 @@ class CustomInput extends StatelessWidget {
                 TargetPlatform.android,
                 TargetPlatform.iOS,
               ].contains(defaultTargetPlatform)
-          ? /* default menu*/ (context, e) =>
-              AdaptiveTextSelectionToolbar.editableText(
+          ? /* default menu*/ (context, e) => AdaptiveTextSelectionToolbar.editableText(
                 editableTextState: e,
               )
           : _CustomContextMenuButtonState.contextMenuBuilder,

@@ -8,22 +8,20 @@ import 'package:normal_irc/widgets/clickable_text_link.dart';
 import 'package:provider/provider.dart';
 
 class ChatNavigationPage extends StatelessWidget {
-  get IRCView => const [
+  const ChatNavigationPage({super.key});
+
+  get ircView => const [
         ChatServerTitleWidget(title: "CRIIRC"),
         IRCChannelListWidget(),
       ];
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final appStyle = Provider.of<AppStyle>(context);
-    final color = appStyle.color;
-
     return Material(
       child: Container(
-        padding: EdgeInsets.fromLTRB(32, 32, 32, 16),
+        padding: const EdgeInsets.fromLTRB(32, 32, 32, 16),
         child: Column(
-          children: IRCView,
+          children: ircView,
         ),
       ),
     );
@@ -56,11 +54,11 @@ class URAlone extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final appStyle = Provider.of<AppStyle>(context);
-    final color = appStyle.color!;
+    final color = appStyle.color;
 
     return Expanded(
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 400, maxHeight: 400),
+        constraints: const BoxConstraints(maxWidth: 400, maxHeight: 400),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -70,13 +68,12 @@ class URAlone extends StatelessWidget {
                 child: ColorFiltered(
                   colorFilter: ColorFilter.mode(color, BlendMode.plus),
                   child: ColorFiltered(
-                    colorFilter:
-                        ColorFilter.mode(Colors.grey, BlendMode.saturation),
+                    colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.saturation),
                     child: Image.asset("images/ur_alone.jpg"),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               Flexible(
@@ -84,8 +81,7 @@ class URAlone extends StatelessWidget {
                 child: Text(
                   "You found Meowtchi !\n\na lonely guy who can't join any channel because he's a cat. Before you leave, please stay in here a moment with him, to heal his broken heart.",
                   textAlign: TextAlign.center,
-                  style: textTheme.bodyMedium!
-                      .copyWith(fontSize: 14, fontStyle: FontStyle.italic),
+                  style: textTheme.bodyMedium!.copyWith(fontSize: 14, fontStyle: FontStyle.italic),
                 ),
               )
             ],
@@ -102,7 +98,6 @@ class ChannelListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final appStyle = Provider.of<AppStyle>(context);
 
     List<Widget> list = [
       for (var item in Provider.of<IRCClient>(context).channelList)
@@ -142,7 +137,7 @@ class ChannelListWidget extends StatelessWidget {
               children: list,
             )
           : ListView(
-              padding: EdgeInsets.only(top: 32),
+              padding: const EdgeInsets.only(top: 32),
               children: list,
             ),
     );
@@ -158,7 +153,7 @@ class ChatServerTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       // padding: EdgeInsets.fromLTRB(0, 0, 0, 80),
       child: ClickableTextLink(
@@ -194,7 +189,7 @@ class JoinButtonWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
         ),
         width: double.infinity,
-        padding: EdgeInsets.fromLTRB(24, 14, 24, 14),
+        padding: const EdgeInsets.fromLTRB(24, 14, 24, 14),
         child: Text(
           "Join Channel",
           style: textTheme.bodyMedium?.copyWith(color: appStyle.bgColor),

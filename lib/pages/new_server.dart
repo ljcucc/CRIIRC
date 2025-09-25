@@ -17,7 +17,7 @@ class AddServerWidget extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(color: color),
-        padding: EdgeInsets.all(14),
+        padding: const EdgeInsets.all(14),
         child: Text(
           "Add Server",
           textAlign: TextAlign.center,
@@ -31,13 +31,11 @@ class AddServerWidget extends StatelessWidget {
 class NewServerForm extends StatelessWidget {
   const NewServerForm({super.key});
 
-  InputField(String label, BuildContext context, {bool obscureText = false}) {
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
+  inputField(String label, BuildContext context, {bool obscureText = false}) {
     final color = Provider.of<AppStyle>(context).color;
 
     return Container(
-        padding: EdgeInsets.only(left: 16, right: 16),
+        padding: const EdgeInsets.only(left: 16, right: 16),
         decoration: BoxDecoration(color: color.withOpacity(0.07)),
         child: CustomInput(
           hint: label,
@@ -47,8 +45,6 @@ class NewServerForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Provider.of<AppStyle>(context).color;
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -58,14 +54,14 @@ class NewServerForm extends StatelessWidget {
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             children: [
-              InputField("servername", context),
-              InputField("hostname", context),
-              InputField("account", context),
-              InputField("password", context, obscureText: true),
+              inputField("servername", context),
+              inputField("hostname", context),
+              inputField("account", context),
+              inputField("password", context, obscureText: true),
             ],
           ),
         ),
-        AddServerWidget(),
+        const AddServerWidget(),
       ],
     );
   }
@@ -80,15 +76,15 @@ class NewServerPageWidget extends StatelessWidget {
 
     return Center(
       child: Container(
-        padding: EdgeInsets.all(32),
+        padding: const EdgeInsets.all(32),
         child: Container(
           width: double.infinity,
-          constraints: BoxConstraints(maxWidth: 400),
+          constraints: const BoxConstraints(maxWidth: 400),
           // padding: EdgeInsets.all(24),
           decoration: BoxDecoration(
             border: Border.all(color: color, width: 3),
           ),
-          child: NewServerForm(),
+          child: const NewServerForm(),
         ),
       ),
     );
@@ -106,11 +102,11 @@ class NewServerPageWidget extends StatelessWidget {
 
           return Scaffold(
             appBar: AppBar(
-              title: Text("Connect to server"),
+              title: const Text("Connect to server"),
               titleTextStyle: textTheme.titleSmall,
               iconTheme: IconTheme.of(context).copyWith(color: color),
             ),
-            body: NewServerPageWidget(),
+            body: const NewServerPageWidget(),
           );
         },
       ),

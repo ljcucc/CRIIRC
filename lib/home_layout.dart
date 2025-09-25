@@ -8,28 +8,24 @@ class HomeLayout extends StatelessWidget {
   const HomeLayout({super.key});
 
   List<Widget> get layouts => [
-        Flexible(
+        const Flexible(
           flex: 20,
-          child: Container(
-            child: ChatNavigationPage(),
-          ),
+          child: ChatNavigationPage(),
         ),
-        Flexible(
+        const Flexible(
           flex: 40,
-          child: Container(
-            child: ChatLogPageWidget(),
-          ),
+          child: ChatLogPageWidget(),
         ),
         Flexible(
           flex: 20,
           child: Container(
-            constraints: BoxConstraints(maxWidth: 400, minWidth: 333),
-            child: MemberListPage(),
+            constraints: const BoxConstraints(maxWidth: 400, minWidth: 333),
+            child: const MemberListPage(),
           ),
         ),
       ];
 
-  Widget UI(int layoutInt) {
+  Widget ui(int layoutInt) {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.only(bottom: 8),
@@ -45,7 +41,7 @@ class HomeLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       int layoutInt = getLayoutInt(context);
-      return UI(layoutInt);
+      return ui(layoutInt);
     });
   }
 }

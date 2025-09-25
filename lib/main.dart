@@ -1,11 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:normal_irc/app_style.dart';
 import 'package:normal_irc/data/irc_client.dart';
-import 'package:normal_irc/pages/chat_logs.dart';
-import 'package:normal_irc/pages/navigation_views.dart';
-import 'package:normal_irc/pages/member_list.dart';
 import 'package:normal_irc/pages/welcome_screen.dart';
 import 'package:normal_irc/utils.dart';
 import 'package:provider/provider.dart';
@@ -20,13 +15,13 @@ void main() {
         ChangeNotifierProvider<IRCClient>(create: (_) => IRCClient()),
         ChangeNotifierProvider<AppStyle>(create: (_) => AppStyle()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   ThemeData initThemeData(BuildContext context) {
     AppStyle appStyle = Provider.of<AppStyle>(context);
@@ -154,14 +149,14 @@ class _MyHomePageState extends State<MyHomePage> {
       });
       return;
     }
-    // Future.delayed(Duration(seconds: 1), () => WelcomeScreen.open(context));
+    if (!mounted) return;
     WelcomeScreen.open(context);
   }
 
   @override
   void initState() {
     super.initState();
-    openWelcomeScreen().then((value) => print("welcome!")).catchError(print);
+    openWelcomeScreen();
   }
 
   @override
@@ -177,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (inited) return const HomeLayout();
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: const BoxDecoration(color: Colors.white),
       ),
     );
   }

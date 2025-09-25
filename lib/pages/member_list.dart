@@ -15,7 +15,7 @@ class _MemberListPageState extends State<MemberListPage> {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      padding: EdgeInsets.fromLTRB(32, 32, 32, 16),
+      padding: const EdgeInsets.fromLTRB(32, 32, 32, 16),
       alignment: Alignment.topLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

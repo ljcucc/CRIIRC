@@ -32,6 +32,6 @@ class IRCClient extends ChangeNotifier {
 }
 
 void connect() {
-  var config = Configuration();
-  var client = new Client(config);
+  // var config = Configuration();
+  // var client = new Client(config);
 }

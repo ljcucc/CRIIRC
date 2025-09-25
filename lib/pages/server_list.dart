@@ -38,7 +38,7 @@ class ServerListSelectorWidget extends StatelessWidget {
         squeeze: 0.9,
         // magnification: 1,
         // useMagnifier: true,
-        children: [
+        children: const [
           NewServerOptionWidget(name: "Help &\nAbout"),
           NewServerOptionWidget(name: "Libera\nChat"),
           NewServerOptionWidget(name: "Matrix\nServer"),
@@ -58,7 +58,7 @@ class ServerListWidget extends StatelessWidget {
 
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.only(top: 60, bottom: 60),
+        padding: const EdgeInsets.only(top: 60, bottom: 60),
         child: Column(
           children: [
             Flexible(
@@ -92,7 +92,7 @@ class ServerListWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  ServerListSelectorWidget(),
+                  const ServerListSelectorWidget(),
                 ],
               ),
             ),
@@ -107,10 +107,16 @@ class ServerListWidget extends StatelessWidget {
   }
 }
 
-class ServerListItem extends StatelessWidget {
-  ServerListItem({super.key, required this.name});
+class ServerListItem extends StatefulWidget {
+  const ServerListItem({super.key, required this.name});
 
   final String name;
+
+  @override
+  State<ServerListItem> createState() => _ServerListItemState();
+}
+
+class _ServerListItemState extends State<ServerListItem> {
   bool isHover = false;
 
   @override
@@ -118,30 +124,27 @@ class ServerListItem extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final color = Provider.of<AppStyle>(context).color;
 
-    return StatefulBuilder(builder: (context, setState) {
-      return InkWell(
-        onHover: (value) {
-          setState(() => isHover = true);
-          print("hover");
-        },
-        child: Container(
-          padding: const EdgeInsets.only(top: 32, bottom: 32),
-          decoration: BoxDecoration(
-            color: isHover ? color.withOpacity(0.1) : null,
-            border: Border.all(width: 3, color: color),
-            borderRadius: BorderRadius.circular(100),
-          ),
-          child: Marquee(
-            text: "${name} ",
-            style: textTheme.titleLarge!.copyWith(
-              // color: Colors.white,
-              fontSize: 80.0,
-              fontStyle: FontStyle.italic,
-            ),
+    return InkWell(
+      onHover: (value) {
+        setState(() => isHover = value);
+      },
+      child: Container(
+        padding: const EdgeInsets.only(top: 32, bottom: 32),
+        decoration: BoxDecoration(
+          color: isHover ? color.withOpacity(0.1) : null,
+          border: Border.all(width: 3, color: color),
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: Marquee(
+          text: "${widget.name} ",
+          style: textTheme.titleLarge!.copyWith(
+            // color: Colors.white,
+            fontSize: 80.0,
+            fontStyle: FontStyle.italic,
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }
 
@@ -150,17 +153,15 @@ class ServerListWidget2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final color = Provider.of<AppStyle>(context).color;
     return SafeArea(
       child: Center(
         child: Container(
-          constraints: BoxConstraints(maxWidth: 600),
+          constraints: const BoxConstraints(maxWidth: 600),
           // padding: EdgeInsets.all(8),
           child: ListView(
             padding: EdgeInsets.zero,
             itemExtent: 180,
-            children: [
+            children: const [
               ServerListItem(name: "LiberaChat"),
               ServerListItem(name: "Matrix server"),
               ServerListItem(name: "Help & documents"),

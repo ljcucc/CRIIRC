@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 MaterialColor getMaterialColor(Color color) {
   final int red = color.red;
